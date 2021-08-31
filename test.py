@@ -5,10 +5,11 @@ conv = cc('./arguments.txt')
 
 #menu def 
 def generateKey():
-    subject = input('materia>> ')
     notebook = input('quaderno>> ')
+    subject = input('materia>> ')
+    page = input('pagina>> ')
     print('---------------------')
-    print('key >> ' + conv.generate(subject, notebook))
+    print('key >> ' + conv.generate(subject, notebook, page))
     print('---------------------')
     input()
 
