@@ -1,0 +1,5 @@
+italiano:1
+ita:1
+storia:2
+mate:3
+info:4
