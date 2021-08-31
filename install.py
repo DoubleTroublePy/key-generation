@@ -1,6 +1,6 @@
 import os
 os.system('rm keyGenerate.py')
-os.system('wget https://raw.githubusercontent.com/DoubleTroublePy/key-generation/main/test.py')
+os.system('wget https://raw.githubusercontent.com/DoubleTroublePy/key-generation/main/test.py > keyGenerate')
 
 os.system('rm convertClass.py ')
 os.system('wget https://raw.githubusercontent.com/DoubleTroublePy/key-generation/main/convertClass.py')
