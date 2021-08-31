@@ -12,6 +12,10 @@ def generateKey():
     print('---------------------')
     input()
 
+def translateKey():
+    print('... work in progress ...')
+    input()
+
 def argumentList():
     for val in conv.arg.keys():
         print(val)
@@ -19,7 +23,8 @@ def argumentList():
     input()
 
 def addArguments():
-    pass
+    print('... work in progress ...')
+    input()
 
 def delArguments():
     print('... work in progress ...')
