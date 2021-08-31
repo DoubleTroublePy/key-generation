@@ -37,6 +37,8 @@ if __name__ == '__main__':
         print('I 4.add arguments   I')
         print('I 5.del arguments   I')
         print('---------------------')
+        print('I 0.exit            I')
+        print('---------------------')
         choice_val = input(' >> ',)
         print('---------------------')
 
@@ -50,6 +52,8 @@ if __name__ == '__main__':
             addArguments()
         elif choice_val == '5':
             delArguments()
+        elif choice_val == '0':
+            break
         else:
             print('... wrong value ...')
             input()
