@@ -52,7 +52,7 @@ class convertClass:
         num = num / base
         return self.toString(rest)
 
-    def generate(self, sub, num) -> int:
+    def generate(self, sub, num, pag) -> int:
         id = ''
         date = dt.datetime.now()
         sub = sub.casefold()
@@ -66,6 +66,8 @@ class convertClass:
         id += self.convertNum(int(date.day))
         id += '.'
         id += self.convertNum(int(num))
+        id += '.'
+        id += self.convertNum(int(pag))
         return id
 
     def argument_add(self, key, value) -> None:
