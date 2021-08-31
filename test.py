@@ -1,7 +1,7 @@
 from random import choice
 from convertClass import convertClass as cc
 
-conv = cc('E:\GitHub\Python\codeGenerator\\arguments.txt')
+conv = cc('./arguments.txt')
 
 #menu def 
 def generateKey():
