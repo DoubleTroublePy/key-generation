@@ -50,7 +50,7 @@ if __name__ == '__main__':
         if choice_val == '1':
             generateKey()
         elif choice_val == '2':
-            pass
+            translateKey()
         elif choice_val == '3':
             argumentList()
         elif choice_val == '4':
