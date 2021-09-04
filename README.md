@@ -23,8 +23,9 @@ Please make sure to update tests as appropriate.
 See the [open issues](https://github.com/DoubleTroublePy/key-generation/issues) for a list of proposed features (and known issues).
 
 ## Contact
+DoubleTroublePy - Twitter --> [@DoubleTroublePy](https://twitter.com/DoubleTroublePy)
+                - Mail --> DoubleTroublePy@gmail.com
 
-Your Name - [@DoubleTroublePy](https://twitter.com/DoubleTroublePy) - DoubleTroublePy@gmail.com
 
 Project Link: [https://github.com/DoubleTroublePy/key-generation](https://github.com/DoubleTroublePy/key-generation)
 
