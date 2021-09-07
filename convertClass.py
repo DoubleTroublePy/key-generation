@@ -8,6 +8,7 @@ class convertClass:
     arg_ind = str
     arg = {}
 
+    # setup the file whit a set of values
     def __init__(self, arguments_ind) -> None:
         if path.exists(arguments_ind):
             file = open(arguments_ind, 'r+')
@@ -23,6 +24,8 @@ class convertClass:
                 self.arg[key] = value
         file.close()
     
+    # mode 1 => given a key return the value
+    # mode 0 => given a value return the key  
     def translateArg(self, key, mode) -> int:
         if mode:
             if key in self.arg:
@@ -35,6 +38,7 @@ class convertClass:
                 return list(key_list)[position]
         return False
 
+    # if the ex numeber>9 then convert in the corrispoding char
     def translateNum(self, key, mode) -> int:
         data = {
             10: 'a',
@@ -55,6 +59,7 @@ class convertClass:
                 return list(key_list)[position]
         return key
 
+    # translate a dec-->hex
     def translateHex(self, key_frag) -> int:
         num = 0
         key_frag = key_frag[::-1]
@@ -63,13 +68,14 @@ class convertClass:
             num += (int(tmp_key_frag) * (16**ind))
         return int(num)
 
-
+    # arr-->string TODO find a better way to do this, this metod is stupid
     def toString(self, arr) -> str:
         string = ''
         for num in reversed(arr):
             string += str(num)
         return string
 
+    # hex-->convert 
     def convertNum(self, num) -> str:
         base = 16
         rest = []
@@ -79,7 +85,9 @@ class convertClass:
         rest.append( self.translateNum( int(num%base), 1) )
         num = num / base
         return self.toString(rest)
-
+    
+    # generate the key using a dictonary for the string and then converting evrithing in hex
+    # the data in a yy-mm-dd format is automatic generated  
     def generateKey(self, sub, num, pag) -> int:
         id = ''
         date = dt.datetime.now()
@@ -100,6 +108,7 @@ class convertClass:
             return id
         return 'false'
 
+    # Convert a key in a uman comprensible string
     def decriptKey(self, key) -> str:
         digest = ''
         tmp_digest = ''
@@ -107,7 +116,7 @@ class convertClass:
         for ind in range(len(key)):
             if ind == len(key) - 1 and key[ind] != '' or key[ind] != '.':
                 tmp_digest += key[ind] 
-            else:
+            else:   # if there is a point convert the hex string to decimal, the first value is converted to a word
                 if not lock:
                     tmp_digest = str(self.translateHex(str(tmp_digest)))
                     digest += str(self.translateArg(tmp_digest, 0))
@@ -120,6 +129,7 @@ class convertClass:
                 tmp_digest = ''
         return digest
 
+   # add a new value to the dictionary and to the the file  
     def argument_add(self, key, value) -> bool:
             if not (key in self.arg.keys()):
                 file = open(self.arg_ind, 'a')
@@ -137,6 +147,8 @@ class convertClass:
     def getMaxValue(self) -> int:
         return max(self.arg.values())
     
+    # if the path exist extapolate the keys and values and assing them to the 
+    # dictionary
     def changeFilePath(self, file_path) -> bool:
         if path.exists(file_path):
             self.arg = {}
