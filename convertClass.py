@@ -9,7 +9,7 @@ class convertClass:
     arg = {}
 
     # setup the file whit a set of values
-    def __init__(self, arguments_ind) -> None:
+    def __init__(self, arguments_ind:str) -> None:
         if path.exists(arguments_ind):
             file = open(arguments_ind, 'r+')
         else:
@@ -26,7 +26,7 @@ class convertClass:
     
     # mode 1 => given a key return the value
     # mode 0 => given a value return the key  
-    def translateArg(self, key, mode) -> int:
+    def translateArg(self, key:str, mode:int) -> int:
         if mode:
             if key in self.arg:
                 return int(self.arg[key])
@@ -39,7 +39,7 @@ class convertClass:
         return False
 
     # if the ex numeber>9 then convert in the corrispoding char
-    def translateNum(self, key, mode) -> int:
+    def translateNum(self, key:str, mode:int) -> int:
         data = {
             10: 'a',
             11: 'b',
@@ -60,7 +60,7 @@ class convertClass:
         return key
 
     # translate a dec-->hex
-    def translateHex(self, key_frag) -> int:
+    def translateHex(self, key_frag:str) -> int:
         num = 0
         key_frag = key_frag[::-1]
         for ind in range(len(key_frag)):
@@ -69,14 +69,14 @@ class convertClass:
         return int(num)
 
     # arr-->string TODO find a better way to do this, this metod is stupid
-    def toString(self, arr) -> str:
+    def toString(self, arr:list) -> str:
         string = ''
         for num in reversed(arr):
             string += str(num)
         return string
 
     # hex-->convert 
-    def convertNum(self, num) -> str:
+    def convertNum(self, num:int) -> str:
         base = 16
         rest = []
         while num >= base:
@@ -88,7 +88,7 @@ class convertClass:
     
     # generate the key using a dictonary for the string and then converting evrithing in hex
     # the data in a yy-mm-dd format is automatic generated  
-    def generateKey(self, sub, num, pag) -> int:
+    def generateKey(self, sub:str, num:int, pag:int) -> int:
         id = ''
         date = dt.datetime.now()
         sub = sub.casefold()
@@ -109,7 +109,7 @@ class convertClass:
         return 'false'
 
     # Convert a key in a uman comprensible string
-    def decriptKey(self, key) -> str:
+    def decriptKey(self, key:int) -> str:
         digest = ''
         tmp_digest = ''
         lock = 0
@@ -130,7 +130,7 @@ class convertClass:
         return digest
 
    # add a new value to the dictionary and to the the file  
-    def argument_add(self, key, value) -> bool:
+    def argument_add(self, key:int, value:int) -> bool:
             if not (key in self.arg.keys()):
                 file = open(self.arg_ind, 'a')
                 write_val = '\n' + str(key) + ':' + str(value)
@@ -149,7 +149,7 @@ class convertClass:
     
     # if the path exist extapolate the keys and values and assing them to the 
     # dictionary
-    def changeFilePath(self, file_path) -> bool:
+    def changeFilePath(self, file_path:str) -> bool:
         if path.exists(file_path):
             self.arg = {}
             file = open(file_path, 'r+')
